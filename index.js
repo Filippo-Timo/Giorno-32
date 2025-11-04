@@ -9,6 +9,12 @@ const form = document.getElementById("form");
 
 const previous = document.getElementById("previous");
 
+const f = function (e) {
+  if (!isNaN(parseInt(e.data))) {
+    e.preventDefault();
+  }
+};
+
 // FUNZIONE DEL BUTTON SALVA
 saveButton.addEventListener("click", function () {
   const textAreaContent = textArea.value;
@@ -27,3 +33,14 @@ if (localStorage.getItem(KEY)) {
 } else {
   previous.innerText = " nessun nome è stato salvato precedentemente ";
 }
+
+// FUNZIONE TIMER
+
+let seconds = parseInt(sessionStorage.getItem("timer")) || 0;
+const counter = document.getElementById("timer");
+
+setInterval(() => {
+  seconds++;
+  counter.textContent = seconds;
+  sessionStorage.setItem("timer", seconds);
+}, 1000);
