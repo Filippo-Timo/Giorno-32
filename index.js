@@ -35,12 +35,11 @@ if (localStorage.getItem(KEY)) {
 }
 
 // FUNZIONE TIMER
-
 let seconds = parseInt(sessionStorage.getItem("timer")) || 0;
-const counter = document.getElementById("timer");
+const timer = document.getElementById("timer");
 
 setInterval(() => {
   seconds++;
-  counter.textContent = seconds;
+  timer.textContent = seconds;
   sessionStorage.setItem("timer", seconds);
 }, 1000);
